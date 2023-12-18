@@ -31,7 +31,13 @@ export default function FooterBarBottom() {
         <p className="mt-10 text-center text-xs leading-5 text-gray-500">
           &copy; 2019-{new Date().getFullYear()} Stadtmeisterschaften Erkrath.
           Alle Rechte vorbehalten. Entwickelt von{" "}
-          <Link className={`underline hover:opacity-80`} href={'https://levi-hessmann.de'}>Levi-Hessmann.de</Link>.
+          <Link
+            className={`underline hover:opacity-80`}
+            href={"https://levi-hessmann.de"}
+          >
+            Levi-Hessmann.de
+          </Link>
+          .
         </p>
       </div>
     </footer>
