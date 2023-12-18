@@ -6,7 +6,7 @@ export default function LoginButton() {
       href="/login"
       className="text-sm font-semibold leading-6 text-gray-900"
     >
-      Log in <span aria-hidden="true">&rarr;</span>
+      Anmelden <span aria-hidden="true">&rarr;</span>
     </Link>
   );
 }
