@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, Suspense, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import {
   faBars,
@@ -15,6 +15,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Dancing_Script } from "next/font/google";
 import Wordmark from "@components/brand/Wordmark";
+import LoginOrDropdown from "@components/navigation/user/LoginOrDropdown";
+import Skeleton from "@components/Skeleton";
 
 const dancingScript = Dancing_Script({
   variable: "--font-dancing-script",
@@ -113,7 +115,7 @@ export default function NavigationBarTop(props: NavigationBarTopProps) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {about.map((item) => (
                     <div
@@ -155,9 +157,7 @@ export default function NavigationBarTop(props: NavigationBarTopProps) {
           </a>
         </Popover.Group>
         <div className="hidden lg:inline-flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          <LoginOrDropdown />
         </div>
       </nav>
       <Dialog
@@ -239,13 +239,8 @@ export default function NavigationBarTop(props: NavigationBarTopProps) {
                   Support
                 </a>
               </div>
-              <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+              <div className="py-6 w-full">
+                <LoginOrDropdown />
               </div>
             </div>
           </div>

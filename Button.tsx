@@ -19,6 +19,7 @@ type Props = {
   width?: "full" | "auto";
   onClick?: () => void;
   children: React.ReactNode;
+  center?: boolean;
 };
 
 function getButtonSizeClassName(size: Props["size"]) {
@@ -73,7 +74,9 @@ export default function Button(props: Props) {
         props.loading
           ? "text-transparent justify-center cursor-not-allowed"
           : "hover:bg-opacity-80"
-      } rounded-lg inline-flex ${props.className}`}
+      } rounded-lg inline-flex ${props.className}
+      
+      ${props.center ? "justify-center" : ""}`}
     >
       {props.loading && (
         <svg
@@ -98,7 +101,7 @@ export default function Button(props: Props) {
         </svg>
       )}
 
-      {props.children}
+      <span className={props.loading ? "opacity-0" : ""}>{props.children}</span>
     </button>
   );
 }
