@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import {signOut} from "next-auth/react";
-import {toast} from "sonner";
+import { signOut } from "next-auth/react";
+import { toast } from "sonner";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -59,7 +59,14 @@ export default function UserDropdown(props: Props) {
             </Menu.Item>
           </div>
           <div className="py-1">
-            <form onSubmit={(e) => {e.preventDefault(); signOut(); toast.success("Du wurdest erfolgreich abgemeldet.")}} method="POST">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                signOut();
+                toast.success("Du wurdest erfolgreich abgemeldet.");
+              }}
+              method="POST"
+            >
               <Menu.Item>
                 {({ active }) => (
                   <button

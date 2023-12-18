@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Skeleton from "@components/Skeleton";
 import LoginButton from "@components/navigation/user/LoginButton";
 import UserDropdown from "@components/navigation/user/UserDropdown";
@@ -12,16 +12,16 @@ export default function LoginOrDropdown() {
 
   useEffect(() => {
     fetch("/api/auth/user")
-        .then(async (res) => res.json())
-        .then((data) => {
-            if (data.error) {
-                setLoading(false);
-                return;
-            }
-
-          setEmail(data.token.email);
+      .then(async (res) => res.json())
+      .then((data) => {
+        if (data.error) {
           setLoading(false);
-        });
+          return;
+        }
+
+        setEmail(data.token.email);
+        setLoading(false);
+      });
   }, []);
 
   if (isLoading) {
@@ -33,13 +33,13 @@ export default function LoginOrDropdown() {
   }
 
   return (
-      <div>
-          <div className={`lg:hidden flex`}>
-            <UserMobileDropdown />
-          </div>
-          <div className={`hidden lg:flex`}>
-              <UserDropdown email={email} />
-          </div>
+    <div>
+      <div className={`lg:hidden flex`}>
+        <UserMobileDropdown />
       </div>
+      <div className={`hidden lg:flex`}>
+        <UserDropdown email={email} />
+      </div>
+    </div>
   );
 }
