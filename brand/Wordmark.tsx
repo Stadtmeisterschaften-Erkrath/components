@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 type Props = {
   width?: number;
   height?: number;
@@ -15,7 +13,7 @@ function getLogoUrl(): string {
 export default function Wordmark(props: Props) {
   return (
     <div className={props.className}>
-      <Image
+      <img
         src={getLogoUrl()}
         height={props.height}
         width={props.width}
