@@ -11,7 +11,7 @@ export default function LoginOrDropdown() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/auth/user")
+    fetch("/api/user")
       .then(async (res) => res.json())
       .then((data) => {
         if (data.error) {
